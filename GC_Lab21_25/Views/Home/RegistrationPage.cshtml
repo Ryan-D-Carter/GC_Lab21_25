@@ -1,0 +1,50 @@
+﻿@model Movie
+
+@{ViewData["Title"] = "Movie Registry";}
+
+
+<h3>Validation Summary</h3>
+@Html.ValidationSummary()
+
+<form action="Results" method="post">
+
+    <label asp-for="ID"></label>
+    <input type="number" asp-for="ID" value="@Model.ID" />
+    <br />
+
+    <label asp-for="Title"></label>
+    <input type="text" asp-for="Title" value="@Model.Title" />
+    <br />
+
+    <div>
+        Comedy
+        @Html.RadioButtonFor(model => @Model.Genre, "Comedy")
+        <br />
+        Action
+        @Html.RadioButtonFor(model => @Model.Genre, "Action")
+        <br />
+        Horror
+        @Html.RadioButtonFor(model => @Model.Genre, "Horror")
+        <br />
+        Romance
+        @Html.RadioButtonFor(model => @Model.Genre, "Romance")
+        <br />
+        Other
+        @Html.RadioButtonFor(model => @Model.Genre, "Other")
+        <br />
+    </div>
+    <label asp-for="Year"></label>
+    <input type="date" asp-for="Year" value="@Model.Year" />
+    <br />
+
+    <label asp-for="Actors"></label>
+    <input type="text" asp-for="Actors" value="@Model.Actors" />
+    <br />
+
+    <label asp-for="Directors"></label>
+    <input type="text" asp-for="Directors" value="@Model.Directors" />
+    <br />
+
+
+    <input type="submit" value="Add this movie" />
+</form>
